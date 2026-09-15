@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account - ONE AI</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#181A20;
+color:white;
+min-height:100vh;
+padding:30px;
+}
+
+.back{
+font-size:30px;
+cursor:pointer;
+margin-bottom:30px;
+}
+
+h1{
+font-size:45px;
+margin-bottom:15px;
+}
+
+p{
+font-size:20px;
+color:#b0b0b0;
+line-height:1.5;
+margin-bottom:30px;
+}
+
+input{
+width:100%;
+padding:20px;
+font-size:20px;
+background:#1f222b;
+border:1px solid #444;
+border-radius:20px;
+color:white;
+margin-bottom:20px;
+outline:none;
+}
+
+.info{
+color:#9ea3ae;
+font-size:16px;
+margin-bottom:20px;
+}
+
+.learn{
+color:#2196f3;
+text-decoration:none;
+}
+
+button{
+width:100%;
+padding:18px;
+border:none;
+border-radius:40px;
+font-size:22px;
+cursor:pointer;
+margin-top:15px;
+}
+
+.next{
+background:#1877f2;
+color:white;
+}
+
+.email{
+background:#2a2d36;
+color:white;
+}
+
+.bottom{
+position:fixed;
+bottom:30px;
+left:0;
+right:0;
+text-align:center;
+}
+
+.bottom a{
+color:#2196f3;
+font-size:20px;
+text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="back" onclick="history.back()">←</div>
+
+<h1>What's your mobile number?</h1>
+
+<p>
+Enter the mobile number on which you can be contacted.
+No one will see this on your profile.
+</p>
+
+<input
+type="tel"
+id="mobile"
+placeholder="Mobile Number">
+
+<div class="info">
+You may receive WhatsApp and SMS notifications from us.
+<br>
+<a href="#" class="learn">Learn more</a>
+</div>
+
+<button class="next" onclick="sendOTP()">
+Next
+</button>
+
+<button class="email" onclick="emailSignup()">
+Sign up with email address
+</button>
+
+<div class="bottom">
+<a href="index.html">
+I already have an account
+</a>
+</div>
+
+<script>
+
+function sendOTP(){
+
+let mobile =
+document.getElementById("mobile").value;
+
+if(mobile.length != 10){
+
+alert("Enter valid mobile number");
+
+return;
+
+}
+
+let otp =
+Math.floor(100000 + Math.random()*900000);
+
+localStorage.setItem("otp",otp);
+
+alert("Demo OTP : " + otp);
+
+let entered =
+prompt("Enter OTP");
+
+if(entered == otp){
+
+alert("Account Created Successfully");
+
+window.location.href="password.html";
+
+}else{
+
+alert("Wrong OTP");
+
+}
+
+}
+
+function emailSignup(){
+
+let email =
+prompt("Enter Email Address");
+
+if(email){
+
+alert("Verification link sent to " + email);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
