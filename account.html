@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create Account</title>
+
+<style>
+body{
+background:#181A20;
+color:white;
+font-family:Arial;
+padding:30px;
+}
+
+input{
+width:100%;
+padding:15px;
+margin:10px 0;
+border-radius:10px;
+border:none;
+background:#2a2d36;
+color:white;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#1877f2;
+color:white;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Create Username & Password</h1>
+
+<input
+type="text"
+id="newUsername"
+placeholder="Username">
+
+<input
+type="password"
+id="newPassword"
+placeholder="Password">
+
+<input
+type="password"
+id="confirmPassword"
+placeholder="Confirm Password">
+
+<button onclick="createAccount()">
+Create Account
+</button>
+
+<script>
+
+function createAccount(){
+
+let user =
+document.getElementById("newUsername").value;
+
+let pass =
+document.getElementById("newPassword").value;
+
+let confirm =
+document.getElementById("confirmPassword").value;
+
+if(pass !== confirm){
+
+alert("Passwords do not match");
+
+return;
+
+}
+
+localStorage.setItem(
+"username",
+user
+);
+
+localStorage.setItem(
+"password",
+pass
+);
+
+alert("Account Created Successfully");
+
+window.location.href =
+"index.html";
+
+}
+
+</script>
+
+</body>
+</html>
